@@ -1,0 +1,24 @@
+[package]
+name = "module_07_creatures"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ex01_display"
+path = "src/bin/ex01_display.rs"
+
+[[bin]]
+name = "ex02_trait_bound"
+path = "src/bin/ex02_trait_bound.rs"
+
+[[bin]]
+name = "ex03_default"
+path = "src/bin/ex03_default.rs"
+
+[[bin]]
+name = "ex04_from"
+path = "src/bin/ex04_from.rs"
+
+[[bin]]
+name = "ex05_iterator"
+path = "src/bin/ex05_iterator.rs"

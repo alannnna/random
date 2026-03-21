@@ -1,0 +1,36 @@
+[package]
+name = "module_03_ownership"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ex01_use_after_move"
+path = "src/bin/ex01_use_after_move.rs"
+
+[[bin]]
+name = "ex02_clone"
+path = "src/bin/ex02_clone.rs"
+
+[[bin]]
+name = "ex03_copy"
+path = "src/bin/ex03_copy.rs"
+
+[[bin]]
+name = "ex04_borrow_not_own"
+path = "src/bin/ex04_borrow_not_own.rs"
+
+[[bin]]
+name = "ex05_mut_ownership"
+path = "src/bin/ex05_mut_ownership.rs"
+
+[[bin]]
+name = "ex06_move_in_loop"
+path = "src/bin/ex06_move_in_loop.rs"
+
+[[bin]]
+name = "ex07_struct_method"
+path = "src/bin/ex07_struct_method.rs"
+
+[[bin]]
+name = "ex08_final"
+path = "src/bin/ex08_final.rs"

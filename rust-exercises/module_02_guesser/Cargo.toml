@@ -1,0 +1,24 @@
+[package]
+name = "module_02_guesser"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ex01_comparison"
+path = "src/bin/ex01_comparison.rs"
+
+[[bin]]
+name = "ex02_loop"
+path = "src/bin/ex02_loop.rs"
+
+[[bin]]
+name = "ex03_match"
+path = "src/bin/ex03_match.rs"
+
+[[bin]]
+name = "ex04_range"
+path = "src/bin/ex04_range.rs"
+
+[[bin]]
+name = "ex05_final"
+path = "src/bin/ex05_final.rs"

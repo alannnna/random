@@ -1,0 +1,24 @@
+[package]
+name = "module_08_robust"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ex01_panic_to_result"
+path = "src/bin/ex01_panic_to_result.rs"
+
+[[bin]]
+name = "ex02_custom_error"
+path = "src/bin/ex02_custom_error.rs"
+
+[[bin]]
+name = "ex03_question_mark"
+path = "src/bin/ex03_question_mark.rs"
+
+[[bin]]
+name = "ex04_new_variant"
+path = "src/bin/ex04_new_variant.rs"
+
+[[bin]]
+name = "ex05_final"
+path = "src/bin/ex05_final.rs"

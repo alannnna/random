@@ -1,0 +1,40 @@
+[package]
+name = "module_09_lifetimes"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ex01_two_refs"
+path = "src/bin/ex01_two_refs.rs"
+
+[[bin]]
+name = "ex02_explicit_lifetime"
+path = "src/bin/ex02_explicit_lifetime.rs"
+
+[[bin]]
+name = "ex03_independent_lifetimes"
+path = "src/bin/ex03_independent_lifetimes.rs"
+
+[[bin]]
+name = "ex04_struct_ref"
+path = "src/bin/ex04_struct_ref.rs"
+
+[[bin]]
+name = "ex05_impl_lifetime"
+path = "src/bin/ex05_impl_lifetime.rs"
+
+[[bin]]
+name = "ex06_self_vs_arg"
+path = "src/bin/ex06_self_vs_arg.rs"
+
+[[bin]]
+name = "ex07_elision"
+path = "src/bin/ex07_elision.rs"
+
+[[bin]]
+name = "ex08_static"
+path = "src/bin/ex08_static.rs"
+
+[[bin]]
+name = "ex09_final"
+path = "src/bin/ex09_final.rs"

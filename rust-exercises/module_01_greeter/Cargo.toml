@@ -1,0 +1,24 @@
+[package]
+name = "module_01_greeter"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ex01_hello"
+path = "src/bin/ex01_hello.rs"
+
+[[bin]]
+name = "ex02_mutability"
+path = "src/bin/ex02_mutability.rs"
+
+[[bin]]
+name = "ex03_types"
+path = "src/bin/ex03_types.rs"
+
+[[bin]]
+name = "ex04_functions"
+path = "src/bin/ex04_functions.rs"
+
+[[bin]]
+name = "ex05_final"
+path = "src/bin/ex05_final.rs"

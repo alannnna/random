@@ -1,0 +1,24 @@
+[package]
+name = "module_06_frequencies"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ex01_vec_bounds"
+path = "src/bin/ex01_vec_bounds.rs"
+
+[[bin]]
+name = "ex02_hashmap_entry"
+path = "src/bin/ex02_hashmap_entry.rs"
+
+[[bin]]
+name = "ex03_iterator_chain"
+path = "src/bin/ex03_iterator_chain.rs"
+
+[[bin]]
+name = "ex04_collect_type"
+path = "src/bin/ex04_collect_type.rs"
+
+[[bin]]
+name = "ex05_final"
+path = "src/bin/ex05_final.rs"

@@ -1,0 +1,24 @@
+[package]
+name = "module_05_todos"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ex01_struct_init"
+path = "src/bin/ex01_struct_init.rs"
+
+[[bin]]
+name = "ex02_method_self"
+path = "src/bin/ex02_method_self.rs"
+
+[[bin]]
+name = "ex03_enum_match"
+path = "src/bin/ex03_enum_match.rs"
+
+[[bin]]
+name = "ex04_option_unwrap"
+path = "src/bin/ex04_option_unwrap.rs"
+
+[[bin]]
+name = "ex05_result_question"
+path = "src/bin/ex05_result_question.rs"

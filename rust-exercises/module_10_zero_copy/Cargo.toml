@@ -1,0 +1,36 @@
+[package]
+name = "module_10_zero_copy"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ex01_key_struct"
+path = "src/bin/ex01_key_struct.rs"
+
+[[bin]]
+name = "ex02_config_struct"
+path = "src/bin/ex02_config_struct.rs"
+
+[[bin]]
+name = "ex03_parser_fn"
+path = "src/bin/ex03_parser_fn.rs"
+
+[[bin]]
+name = "ex04_static_inferred"
+path = "src/bin/ex04_static_inferred.rs"
+
+[[bin]]
+name = "ex05_two_lifetimes"
+path = "src/bin/ex05_two_lifetimes.rs"
+
+[[bin]]
+name = "ex06_sub_borrow"
+path = "src/bin/ex06_sub_borrow.rs"
+
+[[bin]]
+name = "ex07_owned_vs_borrowed"
+path = "src/bin/ex07_owned_vs_borrowed.rs"
+
+[[bin]]
+name = "ex08_final"
+path = "src/bin/ex08_final.rs"

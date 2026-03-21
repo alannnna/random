@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "module_01_greeter",
+    "module_02_guesser",
+    "module_03_ownership",
+    "module_04_borrowing",
+    "module_05_todos",
+    "module_06_frequencies",
+    "module_07_creatures",
+    "module_08_robust",
+    "module_09_lifetimes",
+    "module_10_zero_copy",
+]
+resolver = "2"
