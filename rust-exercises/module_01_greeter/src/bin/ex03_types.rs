@@ -9,7 +9,7 @@ fn birth_year(age: u32) -> u32 {
 }
 
 fn name_stats(name: &str, age: &str) -> String {
-    let year = birth_year(age);  // BUG: age is &str, birth_year wants u32
+    let year = birth_year(age.parse().unwrap());
     format!("{} has {} letters and was born in {}", name, name.len(), year)
 }
 

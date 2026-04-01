@@ -4,7 +4,7 @@
 // the value the function body is producing.
 // Run: cargo test --bin ex04_functions -p module_01_greeter
 
-fn count_letters(name: &str) {  // BUG: missing `-> usize`
+fn count_letters(name: &str) -> usize {
     name.chars().filter(|c| c.is_alphabetic()).count()
 }
 

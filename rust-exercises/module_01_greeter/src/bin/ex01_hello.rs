@@ -3,7 +3,7 @@
 // Run: cargo test --bin ex01_hello -p module_01_greeter
 
 fn greet(name: &str) -> String {
-    format!("Hello, {}!")  // BUG: missing the argument that fills {}
+    format!("Hello, {}!", name)
 }
 
 fn main() {

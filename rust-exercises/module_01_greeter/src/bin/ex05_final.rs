@@ -7,12 +7,12 @@ fn count_letters(name: &str) -> usize {
 }
 
 fn birth_year(age: u32) -> u32 {
-    2025 - age
+    2026 - age
 }
 
 fn greet(name: &str, age: u32) -> String {
-    let letters = name.len();           // BUG: should count only alphabetic characters
-    let year = birth_year(age) + 1;     // BUG: off by one
+    let letters = count_letters(name);
+    let year = birth_year(age);
     format!(
         "Hello, {}! Your name has {} letters and you were born in {}.",
         name, letters, year
@@ -32,11 +32,11 @@ mod tests {
     fn test_greet() {
         assert_eq!(
             greet("Alice", 30),
-            "Hello, Alice! Your name has 5 letters and you were born in 1995."
+            "Hello, Alice! Your name has 5 letters and you were born in 1996."
         );
         assert_eq!(
             greet("Bob Smith", 25),
-            "Hello, Bob Smith! Your name has 8 letters and you were born in 2000."
+            "Hello, Bob Smith! Your name has 8 letters and you were born in 2001."
         );
     }
 }

@@ -4,7 +4,7 @@
 // Run: cargo test --bin ex02_mutability -p module_01_greeter
 
 fn double_length(name: &str) -> usize {
-    let len = name.len();
+    let mut len = name.len();
     len = len * 2;  // BUG: cannot assign twice to immutable variable `len`
     len
 }
