@@ -59,8 +59,8 @@ fn parse_csv(input: &str) -> Result<Vec<Row>, CsvError> {
     let mut rows = Vec::new();
     for (i, line) in input.lines().enumerate() {
         if line.trim().is_empty() { continue; }
-        let row = parse_row(i + 1, line);   // BUG: should use ? to propagate errors
-        rows.push(row);                      // BUG: pushing a Result instead of a Row
+        let row = parse_row(i + 1, line);
+        rows.push(row);
     }
     Ok(rows)
 }
@@ -70,7 +70,7 @@ fn summary(rows: &[Row]) -> String {
         return "No data".to_string();
     }
     let avg_score = rows.iter().map(|r| r.score).sum::<f64>() / rows.len() as f64;
-    let oldest = rows.iter().max_by_key(|r| r.age).unwrap(); // BUG: use ? in parse_csv instead; here .unwrap() is fine since we checked is_empty
+    let oldest = rows.iter().max_by_key(|r| r.age).unwrap();
     format!("rows={} avg_score={:.1} oldest={}", rows.len(), avg_score, oldest.name)
 }
 

@@ -11,7 +11,6 @@ struct Creature {
     hp: u32,
 }
 
-// BUG: Display is not implemented for Creature
 // impl fmt::Display for Creature {
 //     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
 //         ...
@@ -20,7 +19,7 @@ struct Creature {
 
 fn main() {
     let c = Creature { name: "Goblin".to_string(), hp: 15 };
-    println!("{}", c);  // BUG: won't compile — Creature doesn't implement Display
+    println!("{}", c);
 }
 
 #[cfg(test)]

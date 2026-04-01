@@ -6,13 +6,13 @@
 // Fix `is_palindrome` and `longest` to accept `&str` instead of `&String`.
 // Run: cargo test --bin ex06_str_vs_string -p module_04_borrowing
 
-fn is_palindrome(s: &String) -> bool {   // BUG: too restrictive — should be &str
+fn is_palindrome(s: &String) -> bool {
     let chars: Vec<char> = s.chars().collect();
     let rev: Vec<char> = chars.iter().rev().cloned().collect();
     chars == rev
 }
 
-fn longest(a: &String, b: &String) -> usize {   // BUG: should be &str
+fn longest(a: &String, b: &String) -> usize {
     if a.len() >= b.len() { a.len() } else { b.len() }
 }
 

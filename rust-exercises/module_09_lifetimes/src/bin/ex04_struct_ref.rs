@@ -4,7 +4,6 @@
 // Fix the struct definition and its impl block.
 // Run: cargo test --bin ex04_struct_ref -p module_09_lifetimes
 
-// BUG: Excerpt holds a &str but has no lifetime parameter
 #[derive(Debug)]
 struct Excerpt {
     text: &str,    // compile error: missing lifetime specifier

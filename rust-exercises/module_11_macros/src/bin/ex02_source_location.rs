@@ -4,7 +4,6 @@
 // Replace `log_event` with a macro so `file!()` and `line!()` expand at the call site.
 // Run: cargo test --bin ex02_source_location -p module_11_macros
 
-// BUG: this function always reports "ex02_source_location.rs:13" no matter where it's called from
 fn log_event(event: &str) -> String {
     format!("[{}:{}] {}", file!(), line!(), event)
 }

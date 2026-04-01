@@ -15,18 +15,17 @@ impl AttackSequence {
     }
 }
 
-// BUG: Iterator is not implemented for AttackSequence
 // impl Iterator for AttackSequence {
 //     type Item = u32;
 //     fn next(&mut self) -> Option<u32> { ... }
 // }
 
 fn total_damage(seq: AttackSequence) -> u32 {
-    seq.sum()   // BUG: won't compile — sum() requires Iterator
+    seq.sum()
 }
 
 fn max_hit(seq: AttackSequence) -> Option<u32> {
-    seq.max()   // BUG: same
+    seq.max()
 }
 
 fn main() {

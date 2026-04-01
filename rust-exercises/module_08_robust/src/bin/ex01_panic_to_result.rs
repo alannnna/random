@@ -5,17 +5,17 @@
 // Run: cargo test --bin ex01_panic_to_result -p module_08_robust
 
 fn parse_age(s: &str) -> u32 {
-    let n: i32 = s.parse().expect("age must be a number");  // BUG: panics on bad input
+    let n: i32 = s.parse().expect("age must be a number");
     if n < 0 || n > 150 {
-        panic!("age {} is out of range", n);                 // BUG: panics on out-of-range
+        panic!("age {} is out of range", n);
     }
     n as u32
 }
 
 fn parse_score(s: &str) -> f64 {
-    let n: f64 = s.parse().expect("score must be a number"); // BUG: panics
+    let n: f64 = s.parse().expect("score must be a number");
     if n < 0.0 || n > 100.0 {
-        panic!("score {} out of range [0, 100]", n);         // BUG: panics
+        panic!("score {} out of range [0, 100]", n);
     }
     n
 }

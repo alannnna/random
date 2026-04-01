@@ -11,7 +11,7 @@ enum Outcome {
 fn play(secret: u32, guesses: &[u32]) -> Outcome {
     for (i, &guess) in guesses.iter().enumerate() {
         if guess == secret {
-            return Outcome::Win { attempts: i };  // BUG: should be i + 1 (attempts are 1-indexed)
+            return Outcome::Win { attempts: i };
         }
     }
     Outcome::Loss { attempts: guesses.len() }
@@ -21,7 +21,7 @@ fn score(outcome: &Outcome) -> u32 {
     match outcome {
         Outcome::Win { attempts } => {
             if *attempts == 0 {
-                0  // BUG: a win with 0 attempts should score 100 / attempts, but attempts is 0 here
+                0
                    // Fix play() first — then this branch becomes unreachable
             } else {
                 100 / *attempts as u32

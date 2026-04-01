@@ -5,7 +5,6 @@
 // Replace inspect1/inspect2/inspect3 with a single `inspect!` macro.
 // Run: cargo test --bin ex03_variadic -p module_11_macros
 
-// BUG: three functions to cover 1, 2, and 3 fields — can't add a 4th without another function
 fn inspect1(entity: &str, k1: &str, v1: &str) -> String {
     format!("{}: {}={}", entity, k1, v1)
 }

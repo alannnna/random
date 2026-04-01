@@ -17,7 +17,7 @@ impl Report {
         }
     }
 
-    fn print_title(self) {          // BUG: takes ownership (self), should borrow (&self)
+    fn print_title(self) {
         println!("Title: {}", self.title);
     }
 
@@ -28,7 +28,7 @@ impl Report {
 
 fn display(report: Report) {
     report.print_title();           // `report` is moved here
-    println!("{}", report.summary()); // BUG: `report` was already moved
+    println!("{}", report.summary());
 }
 
 fn main() {

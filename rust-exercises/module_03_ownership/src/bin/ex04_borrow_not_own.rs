@@ -4,17 +4,17 @@
 // This lets the caller keep using the value after the call.
 // Run: cargo test --bin ex04_borrow_not_own -p module_03_ownership
 
-fn word_count(text: String) -> usize {   // BUG: takes ownership, should borrow
+fn word_count(text: String) -> usize {
     text.split_whitespace().count()
 }
 
-fn char_count(text: String) -> usize {   // BUG: takes ownership, should borrow
+fn char_count(text: String) -> usize {
     text.chars().count()
 }
 
 fn analyze(text: String) -> (usize, usize) {
     let words = word_count(text);   // `text` is moved here
-    let chars = char_count(text);   // BUG: `text` already moved
+    let chars = char_count(text);
     (words, chars)
 }
 

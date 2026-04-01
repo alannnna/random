@@ -4,14 +4,12 @@
 // Fix the struct and functions so sub-borrows compile and are correctly scoped.
 // Run: cargo test --bin ex06_sub_borrow -p module_10_zero_copy
 
-// BUG: Span holds two &str sub-slices of some original input — needs a lifetime
 #[derive(Debug, PartialEq)]
 struct Span {
     head: &str,  // compile error
     tail: &str,  // compile error
 }
 
-// BUG: This function returns a Span that borrows from `input` — lifetime needed
 fn split_once_at(input: &str, delim: char) -> Option<Span> {
     input.find(delim).map(|i| Span {
         head: &input[..i],
@@ -19,7 +17,6 @@ fn split_once_at(input: &str, delim: char) -> Option<Span> {
     })
 }
 
-// BUG: takes two Spans (each with their own lifetime) and returns a reference
 // into one of them — must be explicit about which lifetime the output has
 fn longer_head<'a>(a: &'a Span, b: &'a Span) -> &'a str {
     if a.head.len() >= b.head.len() { a.head } else { b.head }

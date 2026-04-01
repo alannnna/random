@@ -7,7 +7,7 @@ fn first_multiple_of_7(start: u32) -> u32 {
     let mut n = start;
     loop {
         if n % 7 == 0 {
-            break n - 1;  // BUG: breaks with n-1 instead of n
+            break n - 1;
         }
         n += 1;
     }

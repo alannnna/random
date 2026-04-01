@@ -24,13 +24,13 @@ fn truncate(s: &str, max: usize) -> &str {
     }
 }
 
-fn format_entry(name: &String, description: &String, max_desc: usize) -> String {  // BUG: should be &str
+fn format_entry(name: &String, description: &String, max_desc: usize) -> String {
     let name_cap = capitalize_first(name);
     let short_desc = truncate(description, max_desc);
     format!("{}: {}", name_cap, short_desc)
 }
 
-fn format_all(entries: &Vec<(String, String)>, max_desc: usize) -> Vec<String> {  // BUG: should be &[(String, String)]
+fn format_all(entries: &Vec<(String, String)>, max_desc: usize) -> Vec<String> {
     entries
         .iter()
         .map(|(name, desc)| format_entry(name, desc, max_desc))

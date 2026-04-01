@@ -3,7 +3,7 @@
 // The pipeline should work without any .clone() calls.
 // Run: cargo test --bin ex08_final -p module_03_ownership
 
-fn most_common_char(text: String) -> char {   // BUG: should borrow
+fn most_common_char(text: String) -> char {
     let mut counts = [0u32; 128];
     for c in text.chars() {
         if (c as usize) < 128 && c != ' ' {
@@ -19,7 +19,7 @@ fn most_common_char(text: String) -> char {   // BUG: should borrow
         .unwrap_or('?')
 }
 
-fn truncate(text: String, max_len: usize) -> String {  // BUG: should borrow
+fn truncate(text: String, max_len: usize) -> String {
     if text.len() <= max_len {
         text.to_string()
     } else {
@@ -30,7 +30,7 @@ fn truncate(text: String, max_len: usize) -> String {  // BUG: should borrow
 fn analyze(text: String) -> String {
     let words = text.split_whitespace().count();
     let common = most_common_char(text);   // `text` moved here
-    let preview = truncate(text, 12);      // BUG: `text` already moved
+    let preview = truncate(text, 12);
     format!(
         "words={} most_common='{}' preview='{}'",
         words, common, preview

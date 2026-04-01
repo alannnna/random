@@ -4,7 +4,7 @@
 // to freed memory. Rust won't compile this. Fix it by returning an owned String.
 // Run: cargo test --bin ex01_dangling -p module_04_borrowing
 
-fn make_greeting(name: &str) -> &str {   // BUG: can't return a reference to local data
+fn make_greeting(name: &str) -> &str {
     let s = format!("Hello, {}!", name);
     &s  // `s` is dropped here — this reference would be dangling
 }

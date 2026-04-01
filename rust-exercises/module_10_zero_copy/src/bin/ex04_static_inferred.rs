@@ -6,8 +6,8 @@
 
 #[derive(Debug)]
 struct Token {
-    kind: &'static str,   // BUG: 'static means only literals allowed
-    value: &'static str,  // BUG: same
+    kind: &'static str,
+    value: &'static str,
 }
 
 impl Token {
@@ -26,7 +26,6 @@ impl Token {
 
 fn tokenize_first(input: &str) -> Token {
     let trimmed = input.trim();
-    // BUG: `trimmed` is a slice of `input`, not a 'static string
     // This won't compile once we try to store it in Token
     if trimmed == "if" || trimmed == "let" || trimmed == "fn" {
         Token::new("keyword", trimmed)

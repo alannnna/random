@@ -10,7 +10,6 @@ struct StrSplit<'a> {
     delimiter: &'a str,
 }
 
-// BUG: lifetime is missing from the impl block
 impl StrSplit {           // should be: impl<'a> StrSplit<'a>
     fn new(s: &str, delim: &str) -> StrSplit {
         StrSplit { remainder: s, delimiter: delim }

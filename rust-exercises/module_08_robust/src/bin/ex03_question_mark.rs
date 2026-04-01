@@ -33,7 +33,6 @@ fn get_field<'a>(fields: &[&'a str], index: usize, name: &str) -> Result<&'a str
 fn parse_record(line: &str) -> Result<Record, ParseError> {
     let fields: Vec<&str> = line.split(',').map(str::trim).collect();
 
-    // BUG: rewrite each of these using `?` instead of match
     let name = match get_field(&fields, 0, "name") {
         Ok(v) => v,
         Err(e) => return Err(e),
@@ -52,7 +51,7 @@ fn parse_record(line: &str) -> Result<Record, ParseError> {
     };
     let score: f64 = match score_str.parse() {
         Ok(v) => v,
-        Err(_) => 0.0,  // BUG: silently swallows score parse errors instead of returning Err
+        Err(_) => 0.0,
     };
 
     Ok(Record { name: name.to_string(), age, score })

@@ -5,7 +5,6 @@
 // This matters: it lets callers use the result even after `_sep` is dropped.
 // Run: cargo test --bin ex02_explicit_lifetime -p module_09_lifetimes
 
-// BUG: both parameters have the same lifetime 'a, so the output is constrained
 // by the shorter-lived of the two. `_sep` outlives `text` in some call sites.
 // Add a second lifetime 'b for `_sep` so the output only depends on `text`.
 fn first_word_of<'a>(text: &'a str, _sep: &'a str) -> &'a str {
@@ -17,11 +16,10 @@ fn main() {
     let first;
     {
         let sep = String::from(" ");
-        // BUG: with one lifetime, `first` is constrained by sep's lifetime
         // After fix, `first` should be usable here even though sep is dropped
         first = first_word_of(&sentence, &sep);
     }
-    println!("First word: {}", first);  // BUG: won't compile with single lifetime
+    println!("First word: {}", first);
 }
 
 #[cfg(test)]

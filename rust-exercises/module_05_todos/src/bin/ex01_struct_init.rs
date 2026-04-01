@@ -15,7 +15,6 @@ impl Todo {
         Todo {
             id,
             title: title.to_string(),
-            // BUG: `done` field is missing — structs must be fully initialized
         }
     }
 

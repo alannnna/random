@@ -13,7 +13,6 @@ fn first_char(s: &str) -> &str {
     &s[..1.min(s.len())]
 }
 
-// BUG: two inputs, both references, output is a reference — elision rule 2 doesn't apply.
 // Which input does the output come from? You must say explicitly.
 fn pick_nonempty(a: &str, b: &str) -> &str {
     if !a.is_empty() { a } else { b }
@@ -27,12 +26,10 @@ impl Wrapper {
     }
 }
 
-// BUG: takes &self AND another reference — output comes from the arg, not self.
 // Elision would tie output to self, but that's wrong here.
 impl Wrapper {
     fn or_default<'a>(&'a self, default: &str) -> &'a str {
         if self.0.is_empty() { default } else { &self.0 }
-        // BUG: `default` has a different lifetime than `'a` (self's lifetime)
         //      but we return it as if it has lifetime 'a
     }
 }

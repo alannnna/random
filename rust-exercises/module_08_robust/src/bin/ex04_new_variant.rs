@@ -25,7 +25,6 @@ fn describe_error(e: &ParseError) -> &'static str {
     match e {
         ParseError::NotANumber(_)   => "parse failure",
         ParseError::OutOfRange { .. } => "validation failure",
-        // BUG: EmptyInput variant is not handled — non-exhaustive match
     }
 }
 

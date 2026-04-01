@@ -10,13 +10,13 @@ fn unique_chars(s: &str) -> HashSet<char> {
     s.chars().collect()  // fine — return type tells the compiler what to collect into
 }
 
-fn words_starting_with(text: &str, letter: char) -> _ {   // BUG: `_` is not a valid return type
+fn words_starting_with(text: &str, letter: char) -> _ {
     text.split_whitespace()
         .filter(|w| w.starts_with(letter))
         .collect()
 }
 
-fn pair_with_length(words: &[&str]) -> _ {   // BUG: `_` is not a valid return type
+fn pair_with_length(words: &[&str]) -> _ {
     // Should collect into Vec<(&&str, usize)> or Vec<(&str, usize)>
     words
         .iter()

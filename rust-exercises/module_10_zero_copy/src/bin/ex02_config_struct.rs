@@ -4,14 +4,12 @@
 // Fix `Pair` and `Config` so they compile.
 // Run: cargo test --bin ex02_config_struct -p module_10_zero_copy
 
-// BUG: missing lifetime
 #[derive(Debug, PartialEq)]
 struct Pair {
     key: &str,    // compile error
     value: &str,  // compile error
 }
 
-// BUG: missing lifetime (and Pair inside needs a lifetime too)
 #[derive(Debug)]
 struct Config {
     pairs: Vec<Pair>,  // compile error: Pair needs a lifetime argument

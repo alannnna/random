@@ -6,7 +6,6 @@
 // Replace `check_equal` with a `check_eq!` macro that shows the expression text on failure.
 // Run: cargo test --bin ex04_stringify -p module_11_macros
 
-// BUG: a function can only see values, not the expressions that produced them
 fn check_equal(left: i32, right: i32) -> Result<(), String> {
     if left != right {
         // Can't print expression names — only raw numbers

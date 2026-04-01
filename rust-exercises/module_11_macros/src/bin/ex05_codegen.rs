@@ -4,8 +4,6 @@
 // Replace the three hand-written event structs with a single `define_event!` macro invocation.
 // Run: cargo test --bin ex05_codegen -p module_11_macros
 
-// BUG: three structs with identical shape — adding a fourth requires copying everything again
-
 #[derive(Debug, PartialEq)]
 struct SpawnEvent {
     entity: String,

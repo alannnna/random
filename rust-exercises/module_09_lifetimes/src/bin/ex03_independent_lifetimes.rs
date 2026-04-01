@@ -5,13 +5,11 @@
 // Fix `prefix_of` to use two lifetime parameters.
 // Run: cargo test --bin ex03_independent_lifetimes -p module_09_lifetimes
 
-// BUG: `needle` and `haystack` are given the same lifetime 'a, but the output
 // only borrows from `haystack`. This makes callers unnecessarily constrained.
 fn find_prefix<'a>(haystack: &'a str, _needle: &'a str, n: usize) -> &'a str {
     &haystack[..n.min(haystack.len())]
 }
 
-// BUG: similar — `default` has nothing to do with the output when `opt` is Some
 fn unwrap_or_prefix<'a>(opt: Option<&'a str>, _default: &'a str) -> &'a str {
     opt.unwrap_or("")
 }
@@ -24,7 +22,7 @@ fn main() {
         prefix = find_prefix(&text, &needle, 5);
         // needle is dropped here — but prefix only borrows from text
     }
-    println!("Prefix: {}", prefix);  // BUG: won't compile with one lifetime
+    println!("Prefix: {}", prefix);
 
     let result;
     {

@@ -8,7 +8,7 @@ fn append_exclamation(s: &mut String) {
     s.push('!');
 }
 
-fn make_excited(text: String) -> String {  // BUG: takes ownership unnecessarily
+fn make_excited(text: String) -> String {
     let mut t = text;
     append_exclamation(&mut t);
     t
@@ -17,7 +17,7 @@ fn make_excited(text: String) -> String {  // BUG: takes ownership unnecessarily
 // Once you fix make_excited to take &mut String, callers can do this:
 fn excite_all(messages: &mut Vec<String>) {
     for msg in messages.iter_mut() {
-        make_excited(msg);  // BUG: this won't work until make_excited takes &mut String
+        make_excited(msg);
     }
 }
 

@@ -3,14 +3,12 @@
 // return references into them — zero heap allocation.
 // Run: cargo test --bin ex09_final -p module_09_lifetimes
 
-// BUG: missing lifetime — which input does the output borrow from?
 fn longest_word(text: &str, _tie_breaker: &str) -> &str {
     text.split_whitespace()
         .max_by_key(|w| w.len())
         .unwrap_or(_tie_breaker)
 }
 
-// BUG: missing lifetime on struct
 #[derive(Debug)]
 struct TextStats {
     source: &str,
@@ -18,7 +16,6 @@ struct TextStats {
     shortest: &str,
 }
 
-// BUG: missing lifetime on impl
 impl TextStats {
     fn new(source: &str) -> TextStats {
         let words: Vec<&str> = source.split_whitespace().collect();
@@ -36,7 +33,6 @@ impl TextStats {
         )
     }
 
-    // BUG: output borrows from `prefix`, not from `self` — lifetime needs to reflect that
     fn words_starting_with(&self, prefix: &str) -> Vec<&str> {
         self.source
             .split_whitespace()

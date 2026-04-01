@@ -15,7 +15,6 @@ fn describe(cmd: &Command) -> String {
     match cmd {
         Command::Add(title) => format!("Adding: '{}'", title),
         Command::Done(id)   => format!("Marking #{} as done", id),
-        // BUG: List and Quit variants are not handled
     }
 }
 

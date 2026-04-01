@@ -14,11 +14,11 @@ impl Counter {
         Counter { count: 0, label: label.to_string() }
     }
 
-    fn increment(&self) {        // BUG: modifies self.count but only has &self
+    fn increment(&self) {
         self.count += 1;
     }
 
-    fn reset(&self) {            // BUG: same
+    fn reset(&self) {
         self.count = 0;
     }
 

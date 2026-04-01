@@ -4,13 +4,12 @@
 // a lifetime `'a` so the compiler can verify the output doesn't outlive its source.
 // Run: cargo test --bin ex01_two_refs -p module_09_lifetimes
 
-// BUG: lifetime annotation is missing — the compiler can't figure out where the
 // returned reference comes from.
 fn longer(a: &str, b: &str) -> &str {
     if a.len() >= b.len() { a } else { b }
 }
 
-fn shorter(a: &str, b: &str) -> &str {   // BUG: same
+fn shorter(a: &str, b: &str) -> &str {
     if a.len() <= b.len() { a } else { b }
 }
 

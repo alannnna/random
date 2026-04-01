@@ -10,7 +10,6 @@
 //   Player: hp=100 mp=50 gold=0
 //   OK
 
-// BUG 1: log_event is a function — always reports this file at this line, not the call site
 fn log_event(event: &str) -> String {
     format!("[{}:{}] {}", file!(), line!(), event)
 }
@@ -18,7 +17,6 @@ fn log_event(event: &str) -> String {
 //     ($event:expr) => { ... }
 // }
 
-// BUG 2: inspect only handles exactly two fields — crashes or won't compile for any other count
 fn inspect(entity: &str, k1: &str, v1: &str, k2: &str, v2: &str) -> String {
     format!("{}: {}={} {}={}", entity, k1, v1, k2, v2)
 }
@@ -26,7 +24,6 @@ fn inspect(entity: &str, k1: &str, v1: &str, k2: &str, v2: &str) -> String {
 //     ($entity:expr, $( $key:expr => $val:expr ),* ) => { ... }
 // }
 
-// BUG 3: check_equal loses expression text — failure just prints raw numbers
 fn check_equal(left: i32, right: i32) -> Result<(), String> {
     if left != right {
         Err(format!("assertion failed: {} != {}", left, right))
@@ -50,19 +47,19 @@ define_event!(DeathEvent);
 fn run_game() -> Vec<String> {
     let mut log = Vec::new();
 
-    log.push(log_event!("player_spawn"));  // BUG 1: fix log_event so this uses call-site location
+    log.push(log_event!("player_spawn"));
 
     let player_hp = 100;
     let player_mp = 50;
     let player_gold = 0;
-    log.push(inspect!("Player",             // BUG 2: fix inspect! so this compiles with 3 fields
+    log.push(inspect!("Player",
         "hp"   => &player_hp.to_string(),
         "mp"   => &player_mp.to_string(),
         "gold" => &player_gold.to_string()
     ));
 
     let max_hp = 100;
-    match check_eq!(player_hp, max_hp) {    // BUG 3: fix check_eq! so failure shows expression names
+    match check_eq!(player_hp, max_hp) {
         Ok(())  => log.push("OK".to_string()),
         Err(e)  => log.push(e),
     }

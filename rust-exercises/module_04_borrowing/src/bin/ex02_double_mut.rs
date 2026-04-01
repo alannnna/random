@@ -7,7 +7,7 @@
 fn swap_first_last(v: &mut Vec<i32>) {
     let last_idx = v.len() - 1;
     let first = &mut v[0];           // mutable borrow of v
-    let last  = &mut v[last_idx];    // BUG: second mutable borrow of v — not allowed
+    let last  = &mut v[last_idx];
     std::mem::swap(first, last);
 }
 

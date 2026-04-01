@@ -4,7 +4,6 @@
 // Fix the two functions that have missing or wrong lifetime annotations.
 // Run: cargo test --bin ex03_parser_fn -p module_10_zero_copy
 
-// BUG: returns a &str but no lifetime says where it comes from
 fn parse_until(input: &str, stop: char) -> &str {
     match input.find(stop) {
         Some(i) => &input[..i],
@@ -12,7 +11,6 @@ fn parse_until(input: &str, stop: char) -> &str {
     }
 }
 
-// BUG: takes two &str inputs, returns one of them — need explicit lifetime
 fn parse_nonempty(primary: &str, fallback: &str) -> &str {
     if !primary.is_empty() { primary } else { fallback }
 }

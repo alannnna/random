@@ -8,12 +8,11 @@
 // normalization is needed), but when it lowercases, it must return a new String.
 // Fix it to return String always (owned), or use Cow<str> for zero-copy when possible.
 // For now, fix it by returning String.
-fn normalize(input: &str) -> &str {   // BUG: this can't work when we need to allocate
+fn normalize(input: &str) -> &str {
     let trimmed = input.trim();
     if trimmed.chars().all(|c| c.is_lowercase() || !c.is_alphabetic()) {
         trimmed  // no change needed — could return a borrow
     } else {
-        // BUG: this creates a new String, but we're trying to return &str
         &trimmed.to_lowercase()  // compile error: returning reference to temporary
     }
 }

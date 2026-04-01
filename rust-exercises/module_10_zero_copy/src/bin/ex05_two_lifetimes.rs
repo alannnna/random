@@ -14,7 +14,6 @@ impl Buffer {
     }
 }
 
-// BUG: View borrows from a Buffer — it needs a lifetime that ties it to the Buffer's data
 #[derive(Debug)]
 struct View {
     slice: &str,   // compile error: missing lifetime
@@ -23,7 +22,6 @@ struct View {
 }
 
 impl View {
-    // BUG: lifetime ties are missing — the View should not outlive the Buffer
     fn from_buffer(buf: &Buffer, start: usize, end: usize) -> View {
         let end = end.min(buf.data.len());
         View {

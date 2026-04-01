@@ -5,13 +5,12 @@
 // Run: cargo test --bin ex01_vec_bounds -p module_06_frequencies
 
 fn nth(v: &[i32], i: usize) -> i32 {
-    v[i]   // BUG: panics if i is out of bounds — use .get() instead
+    v[i]
 }
 
 fn top_two(v: &[i32]) -> (Option<i32>, Option<i32>) {
     let mut sorted = v.to_vec();
     sorted.sort_unstable_by(|a, b| b.cmp(a));
-    // BUG: both of these panic if sorted has fewer than 2 elements
     (Some(sorted[0]), Some(sorted[1]))
 }
 

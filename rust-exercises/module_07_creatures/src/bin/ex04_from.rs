@@ -12,18 +12,16 @@ enum CreatureKind {
     Unknown(String),
 }
 
-// BUG: From<&str> for CreatureKind is not implemented
 // impl From<&str> for CreatureKind { ... }
 
-// BUG: From<CreatureKind> for String is not implemented
 // impl From<CreatureKind> for String { ... }
 
 fn classify(name: &str) -> CreatureKind {
-    CreatureKind::from(name)   // BUG: won't compile without the From impl
+    CreatureKind::from(name)
 }
 
 fn kind_name(kind: CreatureKind) -> String {
-    String::from(kind)         // BUG: won't compile without the From impl
+    String::from(kind)
 }
 
 fn main() {

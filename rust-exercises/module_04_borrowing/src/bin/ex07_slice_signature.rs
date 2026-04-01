@@ -5,11 +5,11 @@
 // Fix the functions to take &[i32] instead of &Vec<i32>.
 // Run: cargo test --bin ex07_slice_signature -p module_04_borrowing
 
-fn sum_first_three(data: &Vec<i32>) -> i32 {   // BUG: should be &[i32]
+fn sum_first_three(data: &Vec<i32>) -> i32 {
     data[0] + data[1] + data[2]
 }
 
-fn contains(data: &Vec<i32>, target: i32) -> bool {   // BUG: should be &[i32]
+fn contains(data: &Vec<i32>, target: i32) -> bool {
     data.iter().any(|&x| x == target)
 }
 
@@ -18,10 +18,10 @@ fn main() {
     let arr = [1, 2, 3, 4, 5];
 
     println!("Sum first 3 of vec:   {}", sum_first_three(&v));
-    println!("Sum first 3 of array: {}", sum_first_three(&arr));  // BUG: won't compile
+    println!("Sum first 3 of array: {}", sum_first_three(&arr));
 
     println!("Vec contains 20:   {}", contains(&v, 20));
-    println!("Array contains 3:  {}", contains(&arr, 3));         // BUG: won't compile
+    println!("Array contains 3:  {}", contains(&arr, 3));
 }
 
 #[cfg(test)]

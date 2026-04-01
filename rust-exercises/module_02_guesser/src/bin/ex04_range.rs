@@ -5,7 +5,7 @@
 
 fn sum_inclusive(start: u32, end: u32) -> u32 {
     let mut total = 0;
-    for n in start..end {  // BUG: exclusive range, misses `end`
+    for n in start..end {
         total += n;
     }
     total
@@ -13,7 +13,7 @@ fn sum_inclusive(start: u32, end: u32) -> u32 {
 
 fn collect_range(start: u32, end: u32) -> Vec<u32> {
     let mut result = Vec::new();
-    for n in start..end {  // BUG: same problem
+    for n in start..end {
         result.push(n);
     }
     result

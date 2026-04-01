@@ -12,7 +12,7 @@ struct Todo {
 }
 
 fn find_todo<'a>(todos: &'a [Todo], id: u32) -> &'a Todo {
-    todos.iter().find(|t| t.id == id).unwrap()  // BUG: panics if id not found
+    todos.iter().find(|t| t.id == id).unwrap()
 }
 
 fn print_todo(todos: &[Todo], id: u32) -> String {

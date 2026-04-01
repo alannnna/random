@@ -10,7 +10,6 @@ fn count_words(text: &str) -> HashMap<String, u32> {
     let mut counts: HashMap<String, u32> = HashMap::new();
     for word in text.split_whitespace() {
         let w = word.to_lowercase();
-        // BUG: this always sets count to 1, overwriting previous counts
         counts.insert(w, 1);
     }
     counts

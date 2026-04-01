@@ -4,7 +4,7 @@
 // Run: cargo test --bin ex01_comparison -p module_02_guesser
 
 fn check_guess(guess: i32, secret: i32) -> &'static str {
-    if guess = secret {     // BUG: assignment instead of comparison
+    if guess == secret {
         "correct"
     } else if guess < secret {
         "too low"

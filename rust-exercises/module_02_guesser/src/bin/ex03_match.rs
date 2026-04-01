@@ -14,7 +14,6 @@ fn describe(result: GuessResult) -> &'static str {
     match result {
         GuessResult::TooLow  => "Go higher!",
         GuessResult::TooHigh => "Go lower!",
-        // BUG: GuessResult::Correct is not handled — non-exhaustive match
     }
 }
 

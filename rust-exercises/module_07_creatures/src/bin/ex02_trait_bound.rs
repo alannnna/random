@@ -24,12 +24,11 @@ impl Describable for Wizard {
     fn describe(&self) -> String { format!("Wizard with {}mp", self.mp) }
 }
 
-// BUG: T has no trait bound — the compiler doesn't know T has .name() or .describe()
 fn print_all<T>(creatures: &[T]) -> Vec<String> {
     creatures.iter().map(|c| c.describe()).collect()
 }
 
-fn loudest_name<T>(creatures: &[T]) -> Option<&str> {  // BUG: same missing bound
+fn loudest_name<T>(creatures: &[T]) -> Option<&str> {
     creatures.iter().map(|c| c.name()).max_by_key(|n| n.len())
 }
 

@@ -10,7 +10,7 @@ fn get_length(s: String) -> usize {
 
 fn process(name: String) -> (usize, String) {
     let len = get_length(name);  // `name` is moved into get_length here
-    (len, name)                  // BUG: `name` was already moved, can't use it here
+    (len, name)
 }
 
 fn main() {

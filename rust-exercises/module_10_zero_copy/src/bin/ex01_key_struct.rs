@@ -4,7 +4,6 @@
 // Fix the `Key` struct so it compiles.
 // Run: cargo test --bin ex01_key_struct -p module_10_zero_copy
 
-// BUG: Key holds &str references but has no lifetime parameter
 #[derive(Debug, PartialEq)]
 struct Key {
     name: &str,      // compile error: missing lifetime specifier

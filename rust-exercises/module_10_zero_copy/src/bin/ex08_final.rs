@@ -4,27 +4,23 @@
 // Fix all lifetime annotations — there are several.
 // Run: cargo test --bin ex08_final -p module_10_zero_copy
 
-// BUG: Pair holds borrowed slices — needs a lifetime
 #[derive(Debug, PartialEq)]
 struct Pair {
     key: &str,    // compile error
     value: &str,  // compile error
 }
 
-// BUG: Config holds a Vec of borrowed Pairs — needs a lifetime too
 #[derive(Debug)]
 struct Config {
     pairs: Vec<Pair>,  // compile error: Pair needs a lifetime argument
 }
 
-// BUG: output lifetime is ambiguous (two input references)
 impl Pair {
     fn new(key: &str, value: &str) -> Pair {
         Pair { key, value }
     }
 }
 
-// BUG: Config's impl needs the lifetime threaded through
 impl Config {
     fn new() -> Config {
         Config { pairs: Vec::new() }
@@ -39,7 +35,6 @@ impl Config {
     }
 }
 
-// BUG: the returned Config borrows from `input` — lifetime annotation needed on fn
 fn parse(input: &str) -> Config {
     let mut config = Config::new();
     for line in input.lines() {

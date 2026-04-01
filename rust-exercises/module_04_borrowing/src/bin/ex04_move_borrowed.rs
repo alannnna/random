@@ -5,12 +5,12 @@
 // Run: cargo test --bin ex04_move_borrowed -p module_04_borrowing
 
 fn take_first(v: &Vec<String>) -> String {
-    v[0]   // BUG: cannot move out of `v[0]` which is behind a shared reference
+    v[0]
 }
 
 fn take_last(v: &Vec<String>) -> String {
     let last_idx = v.len() - 1;
-    v[last_idx]   // BUG: same problem
+    v[last_idx]
 }
 
 fn main() {

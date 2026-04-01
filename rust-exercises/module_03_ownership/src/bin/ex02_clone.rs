@@ -9,8 +9,8 @@ fn loudify(s: String) -> String {
 }
 
 fn greet_loudly(name: String) -> (String, String) {
-    let loud = loudify(name);  // BUG: `name` is moved here
-    (name, loud)               // BUG: `name` no longer exists
+    let loud = loudify(name);
+    (name, loud)
 }
 
 fn main() {

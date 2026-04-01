@@ -5,11 +5,9 @@
 // Run: cargo test --bin ex01_macro_syntax -p module_11_macros
 
 fn main() {
-    // BUG: `vec` is a macro, not a function — needs `!`
     let events: Vec<&str> = vec("player_spawn", "enemy_spawn", "player_move");
 
     for event in &events {
-        // BUG: `println` is a macro, not a function — needs `!`
         println("{}", event);
     }
 }

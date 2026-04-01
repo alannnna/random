@@ -15,7 +15,6 @@ impl Cache {
     }
 
     // This method returns a slice of self.data — output should be tied to 'self, not to 'query.
-    // BUG: with elision, Rust ties output to `self` (first arg with a lifetime), which is
     // actually correct here. Try the other method below which IS broken.
     fn lookup(&self, _query: &str) -> &str {
         &self.data
@@ -23,11 +22,10 @@ impl Cache {
 
     // This method returns `fallback` if data is empty, otherwise returns a slice of self.data.
     // The output must be tied to BOTH `self` AND `fallback` — the same lifetime.
-    // BUG: With elision, Rust ties the output only to `self`. But when we return `fallback`,
     // the output has `fallback`'s lifetime. Add an explicit lifetime to tie them together.
     fn get_or<'a>(&'a self, fallback: &str) -> &'a str {
         if self.data.is_empty() {
-            fallback  // BUG: fallback has a different (unnamed) lifetime — compile error
+            fallback
         } else {
             &self.data
         }

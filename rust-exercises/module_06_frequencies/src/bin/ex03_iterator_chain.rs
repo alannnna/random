@@ -8,7 +8,7 @@ fn only_evens(numbers: &[i32]) -> Vec<i32> {
     numbers
         .iter()
         .map(|&x| x)
-        .filter(|x| x % 2 == 1)  // BUG: keeps odd numbers, should keep even (% 2 == 0)
+        .filter(|x| x % 2 == 1)
         .collect()
 }
 
@@ -16,7 +16,7 @@ fn doubled_words_longer_than(words: &[&str], min_len: usize) -> Vec<String> {
     words
         .iter()
         .filter(|w| w.len() > min_len)
-        .map(|w| w.to_uppercase())  // BUG: should repeat the word twice, e.g. "HELLO HELLO"
+        .map(|w| w.to_uppercase())
         .collect()
 }
 

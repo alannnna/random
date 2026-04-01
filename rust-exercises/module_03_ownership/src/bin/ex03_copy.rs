@@ -19,8 +19,8 @@ fn describe(p: Point) -> String {
 }
 
 fn analyze(p: Point) -> (String, f64) {
-    let desc = describe(p);             // BUG: p is moved here
-    let dist = distance_from_origin(p); // BUG: p was already moved
+    let desc = describe(p);
+    let dist = distance_from_origin(p);
     (desc, dist)
 }
 

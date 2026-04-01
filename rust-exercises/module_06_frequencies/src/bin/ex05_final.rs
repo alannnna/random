@@ -26,7 +26,7 @@ fn top_n(counts: &HashMap<String, usize>, n: usize) -> Vec<(&str, usize)> {
         .map(|(k, &v)| (k.as_str(), v))
         .collect();
 
-    pairs.sort_by_key(|&(word, count)| (count, word));  // BUG: should sort descending by count
+    pairs.sort_by_key(|&(word, count)| (count, word));
                                                          // Hint: sort_by with .cmp().reverse()
     pairs.truncate(n);
     pairs
@@ -36,7 +36,7 @@ fn format_report(text: &str, n: usize) -> String {
     let counts = count_words(text);
     let top = top_n(&counts, n);
     top.iter()
-        .map(|(word, count)| format!("{}: {}", count, word))  // BUG: word and count are swapped
+        .map(|(word, count)| format!("{}: {}", count, word))
         .collect::<Vec<_>>()
         .join(", ")
 }

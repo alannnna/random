@@ -4,7 +4,6 @@
 // Fix the code by deriving Default for the structs that need it.
 // Run: cargo test --bin ex03_default -p module_07_creatures
 
-// BUG: Default is not derived — add #[derive(Default)] here
 #[derive(Debug)]
 struct Stats {
     hp: u32,
@@ -12,7 +11,6 @@ struct Stats {
     attack: u32,
 }
 
-// BUG: Default is not derived here either
 #[derive(Debug)]
 struct Creature {
     name: String,
@@ -23,7 +21,7 @@ struct Creature {
 fn spawn(name: &str) -> Creature {
     Creature {
         name: name.to_string(),
-        ..Creature::default()  // BUG: won't compile without Default
+        ..Creature::default()
     }
 }
 

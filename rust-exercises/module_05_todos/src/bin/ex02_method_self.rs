@@ -15,7 +15,7 @@ impl Todo {
         Todo { id, title: title.to_string(), done: false }
     }
 
-    fn complete(self) {         // BUG: should be `&mut self` — we want to mutate, not consume
+    fn complete(self) {
         self.done = true;
     }
 

@@ -36,7 +36,7 @@ fn find_mut<'a>(todos: &'a mut Vec<Todo>, id: u32) -> Result<&'a mut Todo, AppEr
 fn execute(todos: &mut Vec<Todo>, cmd: &str, arg: &str) -> Result<String, AppError> {
     match cmd {
         "done" => {
-            let id = parse_id(arg);   // BUG: should use `?` to propagate error
+            let id = parse_id(arg);
             let todo = find_mut(todos, id)?;
             todo.done = true;
             Ok(format!("Marked '{}' as done", todo.title))
@@ -46,7 +46,7 @@ fn execute(todos: &mut Vec<Todo>, cmd: &str, arg: &str) -> Result<String, AppErr
             todos.push(Todo { id: new_id, title: arg.to_string(), done: false });
             Ok(format!("Added '{}' with id {}", arg, new_id))
         }
-        _ => Ok(format!("Unknown command: {}", cmd)),  // BUG: should return Err, not Ok
+        _ => Ok(format!("Unknown command: {}", cmd)),
     }
 }
 

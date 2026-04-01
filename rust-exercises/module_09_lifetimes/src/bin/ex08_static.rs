@@ -4,18 +4,17 @@
 // Fix `log_message` and `Cache` to use a proper lifetime parameter instead of `'static`.
 // Run: cargo test --bin ex08_static -p module_09_lifetimes
 
-// BUG: the 'static bound means only string literals can be passed
 fn log_message(msg: &'static str) -> String {
     format!("[LOG] {}", msg)
 }
 
 struct Cache {
-    label: &'static str,   // BUG: forces label to be a string literal
+    label: &'static str,
     value: u32,
 }
 
 impl Cache {
-    fn new(label: &'static str, value: u32) -> Cache {  // BUG: same
+    fn new(label: &'static str, value: u32) -> Cache {
         Cache { label, value }
     }
 
@@ -28,12 +27,11 @@ fn main() {
     // These work (literals are 'static):
     println!("{}", log_message("startup complete"));
 
-    // BUG: this doesn't work — dynamic strings aren't 'static:
     let dynamic = format!("user {} logged in", "alice");
     println!("{}", log_message(&dynamic));
 
     let label = String::from("my cache");
-    let cache = Cache::new(&label, 42);  // BUG: label isn't 'static
+    let cache = Cache::new(&label, 42);
     println!("{}", cache.describe());
 }
 

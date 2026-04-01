@@ -6,7 +6,7 @@
 
 fn duplicate_first(v: &mut Vec<String>) {
     let first = &v[0];          // immutable borrow of v — `first` points into v
-    v.push(first.clone());      // BUG: mutable borrow of v while `first` (immutable) is still live
+    v.push(first.clone());
     println!("Added copy of: {}", first);  // `first` used here, keeps the borrow alive
 }
 

@@ -5,12 +5,10 @@
 
 use std::fmt;
 
-// BUG: ParseError enum is not defined.
 // Define it with these variants:
 //   NotANumber(String)   — input couldn't be parsed as a number
 //   OutOfRange(f64, f64, f64)  — value, min, max
 
-// BUG: Display is not implemented for ParseError.
 // Implement it so errors print like:
 //   "not a number: 'abc'"
 //   "42 is out of range [0, 10]"

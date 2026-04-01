@@ -12,7 +12,7 @@ fn total_length(words: Vec<String>) -> (usize, usize) {
         total_chars += word.len();
     }
 
-    let word_count = words.len(); // BUG: `words` was moved into the loop
+    let word_count = words.len();
     (word_count, total_chars)
 }
 

@@ -5,7 +5,7 @@
 
 fn double_length(name: &str) -> usize {
     let mut len = name.len();
-    len = len * 2;  // BUG: cannot assign twice to immutable variable `len`
+    len = len * 2;
     len
 }
 
