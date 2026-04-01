@@ -1,0 +1,28 @@
+[package]
+name = "module_11_macros"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ex01_macro_syntax"
+path = "src/bin/ex01_macro_syntax.rs"
+
+[[bin]]
+name = "ex02_source_location"
+path = "src/bin/ex02_source_location.rs"
+
+[[bin]]
+name = "ex03_variadic"
+path = "src/bin/ex03_variadic.rs"
+
+[[bin]]
+name = "ex04_stringify"
+path = "src/bin/ex04_stringify.rs"
+
+[[bin]]
+name = "ex05_codegen"
+path = "src/bin/ex05_codegen.rs"
+
+[[bin]]
+name = "ex06_final"
+path = "src/bin/ex06_final.rs"

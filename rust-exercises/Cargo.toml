@@ -10,5 +10,6 @@ members = [
     "module_08_robust",
     "module_09_lifetimes",
     "module_10_zero_copy",
+    "module_11_macros",
 ]
 resolver = "2"
