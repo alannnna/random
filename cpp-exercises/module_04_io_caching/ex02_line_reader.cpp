@@ -28,7 +28,6 @@ std::vector<std::string> read_lines(const std::string& content) {
             line += c;
         }
     }
-    // BUG: missing — if (!line.empty()) lines.push_back(line);
     return lines;
 }
 

@@ -27,15 +27,15 @@ static int _pass = 0, _fail = 0;
     fprintf(stderr,"FAIL [line %d]: %s\n",__LINE__,#expr);} } while(0)
 
 struct RefCounter {
-    int count = 0;  // BUG: should be std::atomic<int>
+    int count = 0;
 
     // Explicit load + yield + store guarantees the race:
     // thread A reads count=5, thread B reads count=5, both write 6 — one increment lost.
     // Fix: use count.fetch_add(1) and count.fetch_sub(1) — single indivisible operations.
     void add_ref() {
-        int tmp = count;            // BUG: non-atomic load
+        int tmp = count;
         std::this_thread::yield();
-        count = tmp + 1;            // BUG: non-atomic store (tmp may be stale)
+        count = tmp + 1;
     }
     bool release() {
         int tmp = count;

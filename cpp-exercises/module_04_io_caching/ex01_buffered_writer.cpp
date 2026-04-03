@@ -37,7 +37,6 @@ struct BufferedWriter {
     }
 
     void write(const std::string& data) {
-        // BUG: no overflow check — just appends unconditionally
         buf += data;
     }
 

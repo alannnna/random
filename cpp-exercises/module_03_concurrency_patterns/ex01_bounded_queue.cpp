@@ -34,7 +34,6 @@ struct BoundedQueue {
 
     void push(int val) {
         std::unique_lock<std::mutex> lk(mtx);
-        // BUG: missing wait — should block when q.size() == max_size
         q.push(val);
         not_empty.notify_one();
     }

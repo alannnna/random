@@ -48,7 +48,6 @@ struct SharedQueue {
     // Returns true and sets `out` if an item was consumed; false when finished.
     bool pop(int& out) {
         std::unique_lock<std::mutex> lk(mtx);
-        // BUG: no predicate — if the producer finishes and notifies BEFORE this
         // thread reaches wait(), the wakeup is lost and this sleeps forever.
         // Fix: cv.wait(lk, [&]{ return !q.empty() || done; });
         cv.wait(lk);

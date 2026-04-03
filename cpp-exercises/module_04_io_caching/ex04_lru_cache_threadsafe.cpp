@@ -52,7 +52,6 @@ struct ThreadSafeLRU {
     }
 
     void put(int key, int val) {
-        // BUG: missing lock — concurrent puts corrupt the list/map
         auto it = map.find(key);
         if (it != map.end()) {
             it->second->second = val;

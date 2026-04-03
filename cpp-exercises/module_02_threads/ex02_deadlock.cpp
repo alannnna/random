@@ -30,7 +30,6 @@ struct Account {
 };
 
 void transfer(Account& from, Account& to, int amount) {
-    // BUG: inconsistent lock ordering — thread A holds from.mtx and waits for to.mtx;
     // thread B holds to.mtx and waits for from.mtx → ABBA deadlock.
     // The yield between the two lock() calls makes the interleaving near-certain.
     // Fix: replace with std::scoped_lock(from.mtx, to.mtx)

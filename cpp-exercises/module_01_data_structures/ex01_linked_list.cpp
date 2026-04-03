@@ -45,7 +45,7 @@ struct List {
                 Node* tmp = curr->next;
                 curr->next = tmp->next;
                 delete tmp;
-                curr = curr->next;  // BUG: advances past the new next; remove this line
+                curr = curr->next;
             } else {
                 curr = curr->next;
             }

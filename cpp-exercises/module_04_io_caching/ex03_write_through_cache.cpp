@@ -26,7 +26,6 @@ struct WriteThroughCache {
 
     void put(const std::string& key, int val) {
         cache[key] = val;
-        // BUG: backing_store not updated — data lost on eviction
     }
 
     // Simulate eviction: remove key from cache (backing store unaffected)

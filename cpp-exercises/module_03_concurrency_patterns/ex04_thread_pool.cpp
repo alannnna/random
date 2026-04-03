@@ -58,7 +58,6 @@ struct ThreadPool {
             std::lock_guard<std::mutex> lk(mtx);
             stop = true;
         }
-        // BUG: missing cv.notify_all() — workers sleep forever and join() hangs
         for (auto& t : workers) t.join();
     }
 };

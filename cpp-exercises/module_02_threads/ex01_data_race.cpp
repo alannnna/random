@@ -24,7 +24,6 @@ struct Counter {
     std::mutex mtx;  // hint: use this
 
     void increment() {
-        // BUG: missing lock — the read-yield-write sequence guarantees interleaving:
         // two threads both read the same value, then both write value+1, losing one update.
         int tmp = value;
         std::this_thread::yield();

@@ -24,7 +24,6 @@ struct MinStack {
 
     void push(int val) {
         data.push_back(val);
-        // BUG: should push std::min(val, mins.back()) when mins is non-empty
         mins.push_back(val);
     }
 

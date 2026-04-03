@@ -27,8 +27,8 @@ struct RingBuffer {
 
     explicit RingBuffer(int cap) : buf(cap), capacity(cap) {}
 
-    bool is_empty() const { return (tail + 1) % capacity == head; }  // BUG: this is actually is_full
-    bool is_full()  const { return tail == head; }                     // BUG: this is actually is_empty
+    bool is_empty() const { return (tail + 1) % capacity == head; }
+    bool is_full()  const { return tail == head; }
 
     bool push(int val) {
         if (is_full()) return false;

@@ -50,7 +50,6 @@ struct Pipeline {
         std::thread stage2([&]{
             while (true) {
                 std::unique_lock<std::mutex> lk(mtx);
-                // BUG: no cv.wait — polls and exits the moment the queue is transiently
                 // empty, even when stage1 is still producing.
                 // Fix: cv.wait(lk, [&]{ return !q.empty() || stage1_done; });
                 if (q.empty()) break;

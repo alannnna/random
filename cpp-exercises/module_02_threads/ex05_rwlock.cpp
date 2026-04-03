@@ -31,7 +31,7 @@ struct RWValue {
     }
 
     void write(int delta) {
-        std::shared_lock<std::shared_mutex> lk(rw_mtx);  // BUG: must be unique_lock
+        std::shared_lock<std::shared_mutex> lk(rw_mtx);
         // Read-yield-write makes concurrent writers extremely likely to overlap,
         // producing a lost-update (final value < N) that's easy to detect.
         int tmp = value;
