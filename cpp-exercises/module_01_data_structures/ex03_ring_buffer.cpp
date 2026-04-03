@@ -19,7 +19,8 @@ static int _pass = 0, _fail = 0;
 #define CHECK(expr) do { if(expr){++_pass;}else{++_fail; \
     fprintf(stderr,"FAIL [line %d]: %s\n",__LINE__,#expr);} } while(0)
 
-struct RingBuffer {
+class RingBuffer {
+public:
     std::vector<int> buf;
     int head = 0;   // read index
     int tail = 0;   // write index

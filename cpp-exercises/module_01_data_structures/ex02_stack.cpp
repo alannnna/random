@@ -18,7 +18,8 @@ static int _pass = 0, _fail = 0;
 #define CHECK(expr) do { if(expr){++_pass;}else{++_fail; \
     fprintf(stderr,"FAIL [line %d]: %s\n",__LINE__,#expr);} } while(0)
 
-struct MinStack {
+class MinStack {
+public:
     std::vector<int> data;
     std::vector<int> mins;  // mins[i] = minimum of data[0..i]
 

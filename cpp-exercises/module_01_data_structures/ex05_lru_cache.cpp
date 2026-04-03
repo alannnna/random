@@ -31,7 +31,8 @@ struct Node {
     Node(int k, int v) : key(k), val(v) {}
 };
 
-struct LRUCache {
+class LRUCache {
+public:
     int capacity;
     std::unordered_map<int, Node*> map;
     Node* head;  // dummy sentinel — MRU side

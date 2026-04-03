@@ -24,7 +24,8 @@ struct Node {
     Node(int v, Node* n = nullptr) : val(v), next(n) {}
 };
 
-struct List {
+class List {
+public:
     Node* head = nullptr;
 
     void push_back(int v) {

@@ -27,7 +27,8 @@ static int _pass = 0, _fail = 0;
 #define CHECK(expr) do { if(expr){++_pass;}else{++_fail; \
     fprintf(stderr,"FAIL [line %d]: %s\n",__LINE__,#expr);} } while(0)
 
-struct HashMap {
+class HashMap {
+public:
     struct Slot {
         std::string key;
         int  value    = 0;
