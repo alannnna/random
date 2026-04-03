@@ -14,11 +14,13 @@ fn describe(result: GuessResult) -> &'static str {
     match result {
         GuessResult::TooLow  => "Go higher!",
         GuessResult::TooHigh => "Go lower!",
+        GuessResult::Correct => "You got it!",
     }
 }
 
 fn main() {
     println!("{}", describe(GuessResult::TooLow));
+    println!("{}", describe(GuessResult::TooHigh));
     println!("{}", describe(GuessResult::Correct));
 }
 
